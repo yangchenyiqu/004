@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>滑动门页面 - 学校官网导航</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        list-style-type: none;
+        text-decoration: none;
+        box-sizing: border-box;
+        font-family: "微软雅黑";
+        line-height: 60px;
+    }
+    body{
+        background: url("campus.jpg") no-repeat center center fixed;
+        background-size: cover;
+        background-color: #34495e;
+    }
+    .yijihezi{
+        width: 140px;
+        margin: 80px 0 0 100px;
+    }
+    .yijiliebiao > li{
+        width: 140px;
+        height: 60px;
+        position: relative;
+        background-color: rgba(187, 19, 19, 0.8);
+    }
+    li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .yijiliebiao > li > a{
+        display: block;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+    }
+    .yijiliebiao > li:hover{
+        background-color: #bb1313;
+    }
+
+    /* 二级容器：默认透明不可见，hover淡入 */
+    .erjihezi{
+        position: absolute;
+        left: 140px;
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 10px 0;
+        white-space: nowrap;
+        border-radius: 6px;
+        box-shadow: 0 6px 20px rgba(0,0,0,.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .3s ease;
+    }
+    .erjihezi > li{
+        float: left;
+        width: 120px;
+        height: 40px;
+        opacity: 0;
+        transform: translateX(-100px) scale(.3);
+        transition: all .5s cubic-bezier(.34,1.56,.64,1);
+    }
+    .erjihezi > li:nth-child(1){ transition-delay: 0s; }
+    .erjihezi > li:nth-child(2){ transition-delay: .2s; }
+    .erjihezi > li:nth-child(3){ transition-delay: .4s; }
+    .erjihezi a{
+        color: #333;
+        font-size: 16px;
+        line-height: 40px;
+    }
+    .erjihezi > li:hover{
+        background-color: #eee;
+    }
+
+    /* hover：容器显示 + 三个li逐个弹入 */
+    .yijiliebiao > li:hover > .erjihezi{
+        opacity: 1;
+        visibility: visible;
+    }
+    .yijiliebiao > li:hover > .erjihezi > li{
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+</style>
+</head>
+<body>
+
+    <div class="yijihezi">
+        <ul class="yijiliebiao">
+
+            <li>
+                <a href="#">学校概况</a>
+                <div class="erjihezi">
+                    <ul>
+                        <li><a href="#">学校简介</a></li>
+                        <li><a href="#">历史沿革</a></li>
+                        <li><a href="#">现任领导</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">机构设置</a>
+                <div class="erjihezi">
+                    <ul>
+                        <li><a href="#">教学科研机构</a></li>
+                        <li><a href="#">职能部门</a></li>
+                        <li><a href="#">群团组织</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">教学教育</a>
+                <div class="erjihezi">
+                    <ul>
+                        <li><a href="#">本科教育</a></li>
+                        <li><a href="#">研究生教育</a></li>
+                        <li><a href="#">继续教育</a></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+</html>
